@@ -70,13 +70,16 @@ class Car < Vehicle
       @speed = @speed - 1
     end
   end
+  def year
+    return @modelYear
+  end
 end
 
 #Create an object called myCar that is of class Car
 myCar = Car.new(2016)
 
-# Story: As a programmer, I can make a Tesla car.
-# Task: Create an object called myTesla which is of class Tesla which inherits from class Car .
+#Story: As a programmer, I can make a Tesla car.
+#Task: Create an object called myTesla which is of class Tesla which inherits from class Car .
 
 class Tesla < Car
   # Story: As a programmer, I can speed my Teslas up by 10 per acceleration.
@@ -93,7 +96,7 @@ class Tesla < Car
   end
 end
 
-myTesla = Tesla.new
+myTesla = Tesla.new(2016)
 myTesla.brake
 
 
@@ -115,7 +118,7 @@ class Tata < Car
   end
 end
 
-myTata = Tata.new
+myTata = Tata.new(2012)
 
 # Story: As a programmer, I can make a Toyota car.
 # Task: Create an object called myToyota which is of class Toyota.
@@ -135,7 +138,7 @@ class Toyota < Car
   end
 end
 
-myToyota = Toyota.new
+myToyota = Toyota.new(1991)
 
 
 # Story: As a programmer, I can keep a collection of two of each kind of vehicle, all from different years.
@@ -153,4 +156,5 @@ garage.sort_by {|car| car.year}
 garage.sort_by {|car| car.class.to_s}
 
 # Story: As a programmer, I can sort my collection of cars based on model and then year.
+
 garage.sort_by {|car| [car.class.to_s, car.year]}
